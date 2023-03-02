@@ -10,7 +10,6 @@ function ToDoList () {
     return (
         <div className="row">
             <div className="col text-center">
-                <p>ToDoList ran!</p>
                 <table className="table" id="to-do-list">
                     <InputField tasks={tasks} setTasks={setTasks} />
                     <tbody className="table-group-divider">
@@ -22,14 +21,14 @@ function ToDoList () {
                             })) || 
                             (currentView === 'active' && tasks
                             .filter(task => !task.done)
-                            .map((task, index) => {
-                                return <ToDoItem key={task.id} tasks={tasks} 
+                            .map((task, index, newTasks) => {
+                                return <ToDoItem key={task.id} tasks={newTasks} 
                                 setTasks={setTasks} index={index} />
                             })) || 
                             (currentView === 'completed' && tasks
                             .filter(task => task.done)
-                            .map((task, index) => {
-                                return <ToDoItem key={task.id} tasks={tasks} 
+                            .map((task, index, newTasks) => {
+                                return <ToDoItem key={task.id} tasks={newTasks} 
                                 setTasks={setTasks} index={index} />
                             }))
                         }

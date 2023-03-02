@@ -1,15 +1,16 @@
 function CompleteTasksButton (props) {
     const {tasks, setTasks} = props;
 
-    function handleClick () {
+    function handleClick (event) {
         console.log("Complete Items Checked!");
         const newTasks = [...tasks];
         setTasks(newTasks.map(task => {task.done = true; return task;}));
+        event.target.checked = false;
     }
 
     return (
         <th scope="col">
-            <label htmlFor="complete-all" className="d-block">Mark all items complete</label>
+            <label htmlFor="complete-all" className="form-label d-block">Mark all items complete</label>
             <input type="checkbox" id="complete-all" className="d-block" onClick={handleClick}/>
         </th>
     );
