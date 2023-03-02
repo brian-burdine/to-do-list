@@ -16,12 +16,15 @@ function SubmitTask (props) {
             text: inputText,
             done: false
         }]);
+        let text = document.getElementById("task-entry");
+        text.value = "";
+        text.focus();
     }
 
     return (
         <th scope="col" colSpan="2">
             <div className="input-group">
-                <input type="text" placeholder="Add a to-do item" onChange={handleInputChange} />
+                <input type="text" id="task-entry" placeholder="Add a to-do item" onChange={handleInputChange} />
                 <button className="btn btn-secondary" type="button" onClick={handleClick}>Add item</button>
             </div>
         </th>

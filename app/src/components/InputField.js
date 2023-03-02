@@ -7,7 +7,7 @@ function InputField (props) {
     return (
         <thead>
             <tr>
-                <CompleteTasksButton />
+                <CompleteTasksButton tasks={tasks} setTasks={setTasks} />
                 <SubmitTask tasks={tasks} setTasks={setTasks} />
             </tr>
         </thead>

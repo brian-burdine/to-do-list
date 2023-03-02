@@ -11,10 +11,11 @@ function ToDoItem (props) {
                 <ToDoCompleteButton tasks={tasks} setTasks={setTasks} index={index} />
             </td>
             <td>
-                <ToDoText className={tasks[index].done && "text-decoration-line-through"} text={tasks[index].text} />
+                <ToDoText tasks={tasks} index={index} 
+                className={tasks[index].done ? "text-decoration-line-through" : ""} />
             </td>
             <td>
-                <ToDoDeleteButton tasks={tasks} setTasks={setTasks} index={index}/>
+                <ToDoDeleteButton tasks={tasks} setTasks={setTasks} index={index} />
             </td>
         </tr>
     );

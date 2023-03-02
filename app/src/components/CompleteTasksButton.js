@@ -1,7 +1,10 @@
 function CompleteTasksButton (props) {
+    const {tasks, setTasks} = props;
 
     function handleClick () {
         console.log("Complete Items Checked!");
+        const newTasks = [...tasks];
+        setTasks(newTasks.map(task => {task.done = true; return task;}));
     }
 
     return (

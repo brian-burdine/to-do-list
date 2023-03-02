@@ -1,7 +1,7 @@
 function ToDoText (props) {
-    const {text} = props;
+    const {tasks, index, className} = props;
     
-    return <p>{text}</p> 
+    return <p className={className}>{tasks[index].text}</p> 
 }
 
 export default ToDoText;

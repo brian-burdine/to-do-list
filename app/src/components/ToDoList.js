@@ -15,18 +15,18 @@ function ToDoList () {
                     <InputField tasks={tasks} setTasks={setTasks} />
                     <tbody className="table-group-divider">
                         {
-                            (currentView == 'all' && tasks
+                            (currentView === 'all' && tasks
                             .map((task, index) => {
                                 return <ToDoItem key={task.id} tasks={tasks} 
                                 setTasks={setTasks} index={index} />
                             })) || 
-                            (currentView == 'active' && tasks
+                            (currentView === 'active' && tasks
                             .filter(task => !task.done)
                             .map((task, index) => {
                                 return <ToDoItem key={task.id} tasks={tasks} 
                                 setTasks={setTasks} index={index} />
                             })) || 
-                            (currentView == 'completed' && tasks
+                            (currentView === 'completed' && tasks
                             .filter(task => task.done)
                             .map((task, index) => {
                                 return <ToDoItem key={task.id} tasks={tasks} 
@@ -35,8 +35,7 @@ function ToDoList () {
                         }
                     </tbody>
                     {tasks.length > 0 && <Footer tasks={tasks} 
-                    setTasks={setTasks} currentView={currentView} 
-                    setCurrentView={setCurrentView} />}
+                    setTasks={setTasks} setCurrentView={setCurrentView} />}
                 </table>
             </div>
         </div>
