@@ -3,18 +3,18 @@ import ToDoDeleteButton from "./ToDoDeleteButton";
 import ToDoText from "./ToDoText";
 
 function ToDoItem (props) {
-    const {key, task} = props;
+    const {tasks, setTasks, index} = props;
 
     return (
-        <tr>
+        <tr id={tasks[index].id}>
             <td>
-                <ToDoCompleteButton />
+                <ToDoCompleteButton tasks={tasks} setTasks={setTasks} index={index} />
             </td>
             <td>
-                <ToDoText />
+                <ToDoText className={tasks[index].done && "text-decoration-line-through"} text={tasks[index].text} />
             </td>
             <td>
-                <ToDoDeleteButton />
+                <ToDoDeleteButton tasks={tasks} setTasks={setTasks} index={index}/>
             </td>
         </tr>
     );
