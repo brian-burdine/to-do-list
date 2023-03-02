@@ -36,9 +36,9 @@ With that in mind, I think my hierarchy will look something like this:
             <CompleteTasksButton>
             <SubmitTask>
         <ToDoItem> (looped to render all current ones)
-            <CompleteButton>
-            <Text>
-            <DeleteButton>
+            <ToDoCompleteButton>
+            <ToDoText>
+            <ToDoDeleteButton>
         <Footer>
             <SwitchViewButtons>
             <RestoreTasksButton>
@@ -51,10 +51,11 @@ The state of the application will be controlled by a few variables:
 - *inputText*
   - A string containing the text entered into the text field at the top of the application by the user, used when the user submits a task to create the content of the task
 - *tasks*
-  - An array of *task* objects, which contain a *text* property that takes the value of *inputText* when the *task* object is created, and a flag property *done* that is initially set to false. At the start of the application, *tasks* is empty.
+  - An array of *task* objects, which contain a unique signifier *id*, a *text* property that takes the value of *inputText* when the *task* object is created, and a flag property *done* that is initially set to false. At the start of the application, *tasks* is empty.
 - *currentView*
   - A string indicating the current view, set by radio buttons in the footer when there are one or more items in *tasks*. The default view is "all", and the other values it can take are "active" and "done"
 
 ## Functions
+The functions used in the application will mostly be the ones that return the various components of the page, though several components also have callback functions for event handlers.
 
 ## Procedure
