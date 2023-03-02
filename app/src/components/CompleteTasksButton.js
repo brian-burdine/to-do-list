@@ -10,8 +10,10 @@ function CompleteTasksButton (props) {
 
     return (
         <th scope="col">
-            <label htmlFor="complete-all" className="form-label d-block">Mark all items complete</label>
-            <input type="checkbox" id="complete-all" className="d-block" onClick={handleClick}/>
+            <label htmlFor="complete-all" className="form-label d-block">
+                Mark all items complete</label>
+            <input type="checkbox" id="complete-all" onClick={handleClick} 
+            className={(tasks.every(task => !task.done)) ? "d-block" : "d-none"} />
         </th>
     );
 }
