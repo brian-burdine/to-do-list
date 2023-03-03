@@ -8,6 +8,15 @@ import Footer from "./Footer";
 //  - The currently viewable to-do items, with options to complete or 
 //      delete them
 //  - Options to change the view
+//
+// Two state variables are controlled at this level:
+//  - tasks, an array of objects created from the to-do items the user provides
+//  - currentView, a string that acts as a flag to determine which items should
+//      be displayed
+//
+// To-do items are conditionally rendered based on the current view
+// Options to change the current view are conditionally rendered based on the
+//  presence of items to display
 
 function ToDoList () {    
     const [tasks, setTasks] = useState([]);
