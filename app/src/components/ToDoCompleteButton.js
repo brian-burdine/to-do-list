@@ -12,7 +12,13 @@ function ToDoCompleteButton (props) {
         setTasks(newArray);
     }
 
-    return <input type="checkbox" defaultChecked={tasks[index].done} onClick={handleClick} />
+    return (
+        <>
+            <label htmlFor={`complete-${tasks[index].id}`}>Completed?  </label>
+            <input type="checkbox" id={`complete-${tasks[index].id}`} 
+                defaultChecked={tasks[index].done} onClick={handleClick} />
+        </>
+        );
 }
 
 export default ToDoCompleteButton;

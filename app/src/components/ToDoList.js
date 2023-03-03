@@ -3,6 +3,12 @@ import InputField from "./InputField";
 import ToDoItem from "./ToDoItem";
 import Footer from "./Footer";
 
+// The main thrust of the application. Creates a table that contains:
+//  - A field for accepting new to-do items
+//  - The currently viewable to-do items, with options to complete or 
+//      delete them
+//  - Options to change the view
+
 function ToDoList () {    
     const [tasks, setTasks] = useState([]);
     const [currentView, setCurrentView] = useState('all');
@@ -10,7 +16,7 @@ function ToDoList () {
     return (
         <div className="row">
             <div className="col text-center">
-                <table className="table" id="to-do-list">
+                <table className="table table-hover" id="to-do-list">
                     <InputField tasks={tasks} setTasks={setTasks} />
                     <tbody className="table-group-divider">
                         {

@@ -6,7 +6,7 @@ function ToDoItem (props) {
     const {tasks, setTasks, index} = props;
 
     return (
-        <tr id={tasks[index].id}>
+        <tr id={`task-${tasks[index].id}`}>
             <td>
                 <ToDoCompleteButton tasks={tasks} setTasks={setTasks} index={index} />
             </td>
