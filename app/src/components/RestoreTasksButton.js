@@ -8,7 +8,8 @@ function RestoreTasksButton (props) {
 
     return (
         <td>
-            <button className="btn" onClick={handleClick}>Renew Tasks</button>
+            <button className="btn btn-outline-secondary" onClick={handleClick}>
+                Renew Tasks</button>
         </td>
     );
 }

@@ -6,7 +6,8 @@ function ToDoDeleteButton (props) {
         setTasks(newArray);
     }
 
-    return <button className="btn" onClick={handleClick}>Delete</button>;
+    return <button className="btn btn-outline-secondary" onClick={handleClick}>
+        Delete</button>;
 }
 
 export default ToDoDeleteButton;
