@@ -3,15 +3,18 @@
 // tasks is passed down from ToDoList through InputField so that the done
 //  property can be updated
 
+import { addTasksToStorage } from "../utilities/localStorage";
+
 function CompleteTasksButton (props) {
     const {tasks, setTasks} = props;
 
     // Mark all tasks as done, then clear the checked status for next use of 
     // button
     function handleClick (event) {
-        console.log("Complete Items Checked!");
-        const newTasks = [...tasks];
-        setTasks(newTasks.map(task => {task.done = true; return task;}));
+        //console.log("Complete Items Checked!");
+        const newTasks = tasks.map(task => { return {...task, done: true}});
+        setTasks(newTasks);
+        addTasksToStorage("to-dos", newTasks);
         event.target.checked = false;
     }
 

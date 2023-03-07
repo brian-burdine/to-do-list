@@ -1,9 +1,12 @@
+import { addTasksToStorage } from "../utilities/localStorage";
+
 function RestoreTasksButton (props) {    
     const {tasks, setTasks} = props;
 
     function handleClick () {
-        const newTasks = [...tasks];
-        setTasks(newTasks.map(task => {task.done = false; return task;}));
+        const newTasks = tasks.map(task => { return {...task, done: false}});
+        setTasks(newTasks);
+        addTasksToStorage("to-dos", newTasks);
     }
 
     return (

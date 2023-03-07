@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { addTasksToStorage } from "../utilities/localStorage";
 
 // A duo of a text field for the user to provide a to-do item, and a button
 //  to submit their entry
@@ -22,12 +23,15 @@ function SubmitTask (props) {
     // Create a new task from user input, with a unique id and a completion
     //  status, then switch back to the text field and empty it
     function handleClick (event) {
-        console.log("Button clicked");
-        setTasks([...tasks, {
+        //console.log("Button clicked");
+        let newTask = {
             id: Date.now(),
             text: inputText,
             done: false
-        }]);
+        };
+        let newTasks = [...tasks, newTask];
+        setTasks(newTasks);
+        addTasksToStorage("to-dos", newTasks);
         let text = document.getElementById("task-entry");
         text.value = "";
         text.focus();
