@@ -1,15 +1,20 @@
+import { addTasksToStorage } from "../utilities/localStorage";
+
+// Renders a checkbox that changes the 'done' property of an associated task.
 function ToDoCompleteButton (props) {
     const {tasks, setTasks, index} = props;
 
     function handleClick (event) {
         console.log("Complete button clicked!");
-        let newArray = [...tasks];
-        if (event.target.checked) {
-            newArray[index].done = true;
-        } else {
-            newArray[index].done = false;
-        }
-        setTasks(newArray);
+        let newTasks = tasks.map((task, i) => {
+            if (i === index) {
+                return {...task, done: !task.done};
+            } else {
+                return task;
+            }
+        });
+        setTasks(newTasks);
+        addTasksToStorage("to-dos", newTasks);
     }
 
     return (

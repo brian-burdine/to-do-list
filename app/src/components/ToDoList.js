@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputField from "./InputField";
 import ToDoItem from "./ToDoItem";
 import Footer from "./Footer";
+import { getTasksFromStorage } from "../utilities/localStorage";
 
 // The main thrust of the application. Creates a table that contains:
 //  - A field for accepting new to-do items
@@ -21,6 +22,13 @@ import Footer from "./Footer";
 function ToDoList () {    
     const [tasks, setTasks] = useState([]);
     const [currentView, setCurrentView] = useState('all');
+
+    useEffect(() => {
+        let savedTasks = getTasksFromStorage("to-dos");
+        if (savedTasks.length > 0) {
+            setTasks(savedTasks);
+        }
+    }, [])
 
     return (
         <div className="row">
